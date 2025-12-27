@@ -148,7 +148,8 @@ if st.session_state.page == 'calendar':
                     # カード風の表示
                     c1, c2, c3, c4 = st.columns([1, 2, 2, 2])
                     with c1:
-                        st.color_picker("", bg_color, disabled=True, label_visibility="collapsed")
+                        # 行ごとに違うID（key）を持たせることで解決します
+                        st.color_picker("", bg_color, disabled=True, label_visibility="collapsed", key=f"color_{row['id']}")
                         st.caption(row['user_text'])
                     with c2:
                         st.write(f"**{row['store_text']}**")
